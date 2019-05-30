@@ -1,0 +1,13 @@
+<div>
+  <div align="center"><h1><b>{{title}}</b></h1><hr></div>
+  <div id="first" >
+  <button style='margin-right:50px' type="button" class="btn btn-primary" (click)="originalIndex()">Request a Leave Form</button>
+  
+  <button style='margin-right:50px' type="button" class="btn btn-primary" (click)="changeIndex()">Request another Form : Type 1</button>
+  
+  <button style='margin-right:50px'type="button" class="btn btn-primary" (click)="changeIndextype2()">Request another Form : Type 2</button>
+  <div *ngIf="!check && cl" class="loader"></div>
+  <h1><p  *ngIf="!check && cl">Loading...........</p></h1>
+  <app-form *ngIf = "check"[Form]="Form"></app-form>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div [ngStyle]="Form.style" [id]="Form.id" [ngClass]="'container'">
+  <div  *ngIf = "!cancel">
+  <h3><label>Form Type: {{Form.label}}</label>
+  </h3>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form" [ngClass]="'container'">
+ 
+   
+  
+   
+    <div *ngFor="let field of Form.fields" class="form-row">
+      <app-form-maker *ngIf="!isValidArray(field)"[field]="field" [form]="form" ></app-form-maker>
+       <div *ngIf="isValidArray(field)" class = "flex-container">
+         <div *ngFor ="let f of field">
+            <app-form-maker [field]="f" [form]="form" ></app-form-maker>
+         </div>
+
+       </div>
+    </div>
+ 
+    <div class="form-row" >
+      <button type="submit"  class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+    
+    
+      <button type="reset"  class="btn btn-primary" (click)="onClickCancel()">Cancel</button>
+  
+
+   
+      <button type="reset"  class="btn btn-primary" >Reset</button>
+    </div>
+
+  </form>
+  </div>
+  <div *ngIf="payLoad" class="form-row">
+    <div *ngIf="!undoFlag"><strong  >Saved the following values</strong>{{payLoad}}<br><br><br></div>
+    <strong *ngIf="!undoFlag">Click this if you want to update the form : <button (click)="onClickUndo()"class="btn btn-primary">Undo</button> </strong>
+  </div>
+  
+</div>

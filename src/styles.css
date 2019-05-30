@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+body{
+    background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmoPjeXVT96HPwT9QQj5lJtDoO7uttFE_mMLcgkR2mhI9zJIA-");
+    height : 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+legend.scheduler-border {
+    width:auto; /* Or auto */
+    padding:0 100px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+    margin-bottom:0;
+    border: solid 3px rgb(10, 0, 0) !important;
+}

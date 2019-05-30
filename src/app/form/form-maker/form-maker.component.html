@@ -1,0 +1,73 @@
+<div [formGroup]="form">
+    <div *ngIf ="!field.isForm" [ngClass]="class" >
+    <label [attr.for]="field.key">{{field.label}}</label>
+    <div [ngSwitch]="field.controlType">
+   
+      <input *ngSwitchCase="'textbox'" [formControlName]="field.key"
+              [ngStyle]="field.style"  [ngClass]="'form-control'"
+              [id]="field.id" [type]="field.controlType"  >
+      
+      
+      <textarea *ngSwitchCase="'textarea'" [ngClass]="'form-control'" 
+              [ngStyle]="field.style" [formControlName]="field.key"
+               rows="4" cols="50">{{field.textAreaValue}}
+      </textarea>
+
+      <div *ngSwitchCase="'date'"[ngClass]="'form-control'" [ngStyle]="field.style">
+          
+          <input type="date" name="day" [formControlName]="field.key" [ngStyle]="field.style">
+      </div> 
+
+      <div *ngSwitchCase="'month'" [ngClass]="'form-control'" >
+          
+          <input type="month" name="month" [formControlName]="field.key">
+      </div> 
+
+      <div *ngSwitchCase="'checkbox'" [ngClass]="'form-control'" >
+         <input type="checkbox" [formControlName]="field.key" name=field.checkboxOptions [value]=option [formControlName]="field.key">{{field.checkboxOptions}}<br>
+      </div>
+      
+      
+        
+          <select name="cars"  *ngSwitchCase="'multiselect'" multiple [formControlName]="field.key" [ngClass]="'form-control'">
+              <option *ngFor="let sub of field.multiselectOptons" [value]="sub">{{sub}}</option>
+          
+            </select>
+       
+
+      
+   
+      <select [id]="field.id" 
+              *ngSwitchCase="'dropdown'" 
+              [formControlName]="field.key"
+              [ngStyle]="field.style" [ngClass]="'form-control'">
+        <option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</option>
+      </select>
+
+      
+      </div>
+      <div class="errorMessage" *ngIf="!isValid"><font color="red">This field is required!!</font></div>
+    </div>
+      
+    <div *ngIf ="field.isForm" class="form-group">
+
+      <fieldset>
+       <h4><b> <legend >Fieldset Type: {{field.label}}</legend></b></h4>
+        <div [id]="field.id"
+            [formGroupName]="field.key"
+            [ngStyle]="field.style">
+        
+          <div *ngFor="let subfield of field.fields" class="form-row">
+              <app-form-maker [field]="subfield" [form]="form.get(field.key)"></app-form-maker>
+          </div>
+
+      </div>
+      </fieldset>
+    </div>
+      
+      
+   
+    
+   
+    
+</div>

@@ -1,0 +1,40 @@
+.loader {
+    border: 40px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 40px solid #3498db;
+    width: 350px;
+    height: 350px;
+    -webkit-animation: spin 4s linear infinite; /* Safari */
+    animation: spin 4s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  #first {
+    margin-left: 5%;
+    }
+
+    .ng-valid.ng-dirty:not(form) {
+      border: solid 2px lightgreen;
+    }
+    
+    .ng-invalid.ng-dirty:not(form), .ng-invalid:not(form).form-submitted {
+      border: solid 2px lightcoral;
+    }
+
+    .Container input{ /* You Can Name it what you want*/
+      margin-right:16px;
+      }
+      .Container input:last-child{
+      margin-right:0px;
+      /*so the last one dont push the div thas giving the space only between the inputs*/
+      }

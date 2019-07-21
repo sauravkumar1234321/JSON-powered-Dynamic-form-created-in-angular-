@@ -1,6 +1,6 @@
 # Learning
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+Web application to render Reactive Forms in Angular based on just its Json definition without any need of explicit coding. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
 ## Development server
 
